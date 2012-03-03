@@ -1,0 +1,9 @@
+//Christopher de la Iglesia
+
+Screen::Screen() {
+  SDL_Init(SDL_INIT_EVERYTHING);
+
+  screen = SDL_SetVideoMode(640,480,32,SDL_SWSURFACE);
+
+  
+}

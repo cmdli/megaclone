@@ -1,0 +1,20 @@
+//Christopher de la Iglesia
+
+#ifndef MEGA_H
+#define MEGA_H
+
+#include "SDL.h"
+
+#include "Art.h"
+#include "Entity.cpp"
+#include "Game.h"
+#include "Player.h"
+#include "Screen.h"
+
+#include "Art.cpp"
+#include "Entity.cpp"
+#include "Game.cpp"
+#include "Player.cpp"
+#include "Screen.cpp"
+
+#endif

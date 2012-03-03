@@ -1,0 +1,80 @@
+﻿Build started 3/2/2012 8:49:23 PM.
+     1>Project "C:\Users\Christopher\Desktop\src\Megaman\Megaman\Megaman.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\Megaman.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\Art.cpp ..\src\Entity.cpp ..\src\Game.cpp ..\src\Player.cpp ..\src\Screen.cpp
+         Screen.cpp
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(3): error C2653: 'Screen' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(4): error C2065: 'SDL_INIT_EVERYTHING' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(4): error C3861: 'SDL_Init': identifier not found
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(6): error C2065: 'screen' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(6): error C2065: 'SDL_SWSURFACE' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(6): error C3861: 'SDL_SetVideoMode': identifier not found
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(8): error C2065: 'Art' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(8): error C2228: left of '.init' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(9): warning C4508: 'Screen' : function should return a value; 'void' return type assumed
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(11): error C2653: 'Screen' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\screen.cpp(11): fatal error C1903: unable to recover from previous error(s); stopping compilation
+         Player.cpp
+     1>c:\users\christopher\desktop\src\megaman\src\player.cpp(3): error C2653: 'Player' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\player.cpp(3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\player.cpp(5): warning C4508: 'Player' : function should return a value; 'void' return type assumed
+     1>c:\users\christopher\desktop\src\megaman\src\player.cpp(7): error C2653: 'Player' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\player.cpp(7): fatal error C1903: unable to recover from previous error(s); stopping compilation
+         Game.cpp
+     1>c:\users\christopher\desktop\src\megaman\src\game.cpp(5): error C2653: 'Game' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\game.cpp(5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\game.cpp(6): error C3861: 'init': identifier not found
+     1>c:\users\christopher\desktop\src\megaman\src\game.cpp(7): warning C4508: 'Game' : function should return a value; 'void' return type assumed
+     1>c:\users\christopher\desktop\src\megaman\src\game.cpp(9): error C2653: 'Game' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\game.cpp(9): fatal error C1903: unable to recover from previous error(s); stopping compilation
+         Entity.cpp
+     1>c:\users\christopher\desktop\src\megaman\src\entity.cpp(5): error C2653: 'Entity' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\entity.cpp(5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\entity.cpp(7): warning C4508: 'Entity' : function should return a value; 'void' return type assumed
+     1>c:\users\christopher\desktop\src\megaman\src\entity.cpp(9): error C2653: 'Entity' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\entity.cpp(9): fatal error C1903: unable to recover from previous error(s); stopping compilation
+         Art.cpp
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(5): error C2653: 'Art' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(6): error C2065: 'sprites' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(6): error C3861: 'SDL_LoadBMP': identifier not found
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(7): warning C4508: 'init' : function should return a value; 'void' return type assumed
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(9): error C2653: 'Art' : is not a class or namespace name
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(10): error C2065: 'sprites' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(10): error C3861: 'SDL_FreeSurface': identifier not found
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(11): warning C4508: 'deInit' : function should return a value; 'void' return type assumed
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(13): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(14): error C2065: 'SPRITE_NUM_WIDTH' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(14): error C2065: 'SPRITE_WIDTH' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(14): error C2065: 'SPRITE_HEIGHT' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(14): warning C4508: 'getSprite' : function should return a value; 'void' return type assumed
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(17): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(17): error C2086: 'int SDL_Rect' : redefinition
+                 c:\users\christopher\desktop\src\megaman\src\art.cpp(13) : see declaration of 'SDL_Rect'
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(18): error C2065: 'rect' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(20): error C2065: 'rect' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(20): error C2227: left of '->x' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(21): error C2065: 'rect' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(21): error C2227: left of '->y' must point to class/struct/union/generic type
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(22): error C2065: 'rect' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(22): error C2227: left of '->width' must point to class/struct/union/generic type
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(23): error C2065: 'rect' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(23): error C2227: left of '->height' must point to class/struct/union/generic type
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(25): error C2065: 'rect' : undeclared identifier
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(28): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\christopher\desktop\src\megaman\src\art.cpp(29): error C2065: 'sprites' : undeclared identifier
+         Generating Code...
+     1>Done Building Project "C:\Users\Christopher\Desktop\src\Megaman\Megaman\Megaman.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.95
