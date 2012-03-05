@@ -1,17 +1,25 @@
 //Christopher de la Iglesia
 
-Player::Player() {
+#include "mega.h"
+
+#define ID 1
+
+Player::Player(): Entity() {
 
 }
 
 Player::~Player() {
-
+	Entity::~Entity();
 }
 
-void Player::tick(double time):tick(time) {
-
+void Player::tick(double time) {
+	Entity::tick(time);
 }
 
-void Player::render(Screen* screen): render(screen) {
+void Player::render(Screen* window) {
+	Entity::render(window);
+}
 
+int Player::getID() {
+	return ID;
 }

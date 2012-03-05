@@ -1,30 +1,34 @@
 //Christopher de la Iglesia
 
+#include "mega.h"
 
+extern SDL_Surface* sprites = NULL;
 
-static Art::init() {
+void artInit() {
+	sprites = NULL;
   sprites = SDL_LoadBMP("sprites.bmp");
 }
 
-static Art::deInit() {
+void artDeInit() {
   SDL_FreeSurface(sprites);
 }
 
-static SDL_Rect* getSprite(int id) {
+SDL_Rect* getSprite(int id) {
+	if(sprites == NULL) return NULL;
   return getSprite( (id%SPRITE_NUM_WIDTH)*SPRITE_WIDTH , (id-id%SPRITE_NUM_WIDTH)*SPRITE_HEIGHT, SPRITE_WIDTH, SPRITE_HEIGHT);
 }
 
-static SDL_Rect* getSprite(int x, int y, int width, int height) {
-  SDL_Rect* rect;
+SDL_Rect* getSprite(int x, int y, int width, int height) {
+  SDL_Rect rect;
 
-  rect->x = x;
-  rect->y = y;
-  rect->width = width;
-  rect->height = height;
+  rect.x = x;
+  rect.y = y;
+  rect.w = width;
+  rect.h = height;
 
-  return rect;  
+  return &rect;  
 }
 
-static SDL_Surface* getSpriteSurface() {
+SDL_Surface* getSpriteSurface() {
   return sprites;
 }

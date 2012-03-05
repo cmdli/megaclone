@@ -3,6 +3,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "mega.h"
+
 class Game {
 
  public:
@@ -16,8 +18,8 @@ class Game {
  private:
   void tick(double time);
   void render();
-  (*Entity)[] entities;
-  Screen* screen;
+  Entity* entities;
+  Screen* window;
   int numEnts;
   bool running;
 

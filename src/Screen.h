@@ -3,17 +3,18 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
+
 class Screen {
 
  public:
   Screen();
   ~Screen();
-  void blitSurface(SDL_Surface* src, int x, int y);
-  void blitTiles((*int)[][] tiles);
+  void blitSurface(SDL_Surface* src, int x, int y, SDL_Rect* rect = NULL);
+  void preRender();
   void push();
 
   private:
-  SDL_Surface* screen;
+	SDL_Surface* screen;
 };
 
 

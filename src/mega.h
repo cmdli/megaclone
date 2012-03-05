@@ -8,17 +8,18 @@
 #define SPRITE_HEIGHT 16
 
 #include "SDL.h"
+#include <time.h>
 
-#include "Art.h"
-#include "Entity.cpp"
-#include "Game.h"
-#include "Player.h"
+void printError(char* message);
+SDL_Rect* getSprite(int id);
+SDL_Surface* getSpriteSurface();
+void artInit();
+void artDeInit();
+SDL_Rect* getSprite(int x, int y, int width, int height);
+
 #include "Screen.h"
-
-#include "Art.cpp"
-#include "Entity.cpp"
-#include "Game.cpp"
-#include "Player.cpp"
-#include "Screen.cpp"
+#include "Entity.h"
+#include "Player.h"
+#include "Game.h"
 
 #endif

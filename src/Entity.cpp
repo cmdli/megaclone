@@ -1,9 +1,14 @@
 //Christopher de la Iglesia
 
-#define ID 0
+#define ID -1
+
+#include "mega.h"
 
 Entity::Entity() {
-
+	x = 0;
+	y = 0;
+	xSp = 0.0;
+	ySp = 0.0;
 }
 
 Entity::~Entity() {
@@ -11,14 +16,16 @@ Entity::~Entity() {
 }
 
 void Entity::tick(double time) {
-  x += xSp*time;
-  y += ySp*time;
 }
 
-void Entity::render(Screen* screen) {
-  screen->blitSurface(Art.getSprite(getID),x,y);
+void Entity::render(Screen* window) {
+	if(window == NULL) {
+		printError("The Window is not initialized!");
+		return;
+	}
+	window->blitSurface( getSpriteSurface(), x , y , getSprite( getID() ) );
 }
 
 int Entity::getID() {
-  return ID;
+	return ID;
 }

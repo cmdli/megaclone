@@ -1,11 +1,16 @@
 //Christopher de la Iglesia
 
-#include "SDL.h"
+#include "mega.h"
 
 int main( int argc, char* args[] ){
-    //Start SDL
-    SDL_Init( SDL_INIT_EVERYTHING );
+
+	SDL_Init( SDL_INIT_VIDEO );
     
+	Game* game = new Game();
+
+	game->start();
+	
+
     //Quit SDL
     SDL_Quit();
     

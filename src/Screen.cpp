@@ -1,20 +1,24 @@
 //Christopher de la Iglesia
 
+#include "mega.h"
+
 Screen::Screen() {
-  SDL_Init(SDL_INIT_EVERYTHING);
 
   screen = SDL_SetVideoMode(640,480,32,SDL_SWSURFACE);
 
-  Art.init();
+  //artInit();
 }
 
 Screen::~Screen() {
-  Art.deinit();
-
-  SDL_Quit();
+	SDL_FreeSurface(screen);
+  //artDeInit();
 }
 
-void Screen::blitSurface(SDL_Surface* src,SDL_Rect* rect = NULL, int x, int y) {
+void Screen::preRender() {
+	SDL_FillRect(screen,NULL,0x00FF00);
+}
+
+void Screen::blitSurface(SDL_Surface* src, int x, int y, SDL_Rect* rect) {
   SDL_Rect offset;
   offset.x = x;
   offset.y = y;
@@ -22,14 +26,6 @@ void Screen::blitSurface(SDL_Surface* src,SDL_Rect* rect = NULL, int x, int y) {
   SDL_BlitSurface( src, rect, screen, &offset );
 }
 
-void Screen::blitTiles((*int)[][] tiles) {
-  for(int y = 0; y < tiles.size(); y++) {
-    for(int x = 0; x < tiles[y].size(); x++) {
-      blitSurface(Art.getSpriteSurface(),Art.getSprite(tiles[y][x]),x*SPRITE_WIDTH,y*SPRITE_HEIGHT);
-    }
-  }
-}
-
 void Screen::push() {
-
+	SDL_Flip(screen);
 }

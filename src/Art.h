@@ -3,16 +3,14 @@
 #ifndef ART_H
 #define ART_H
 
-class Art {
 
- public:
-  static SDL_Surface* getSprite(int id);
-  static void init();
-  static void deInit();
+SDL_Rect* getSprite(int id);
+SDL_Surface* getSpriteSurface();
+void artInit();
+void artDeInit();
 
- private:
-  static SDL_Surface* sprites;
-  static SDL_Surface* getSprite(int x, int y);
-};
+extern SDL_Surface* sprites = NULL;
+SDL_Rect* getSprite(int x, int y, int width, int height);
+
 
 #endif

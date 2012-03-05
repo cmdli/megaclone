@@ -2,20 +2,21 @@
 
 #define NUM_ENTS 6
 
+#include "mega.h"
+
 Game::Game() {
-  init();
+  /*entities = new Entity[NUM_ENTS];*/
+  window = new Screen();
+  running = true;
 }
 
 Game::~Game() {
-  deInit();
+  /*delete entities;*/
+  delete window;
+
 }
 
-void Game::init() {
-  numEnts = NUM_ENTS;
-  entites = new Entity[NUM_ENTS];
-  screen = new Screen();
-  running = true;
-}
+
 
 void Game::start() {
   clock_t prevTime = clock()*CLOCKS_PER_SEC;
@@ -24,7 +25,8 @@ void Game::start() {
   while(running) {
     curTime = clock()*CLOCKS_PER_SEC;
     if(curTime-prevTime > 0.005) {
-      tick(curTime-prevTime);
+		prevTime = clock()*CLOCKS_PER_SEC;
+      //tick(curTime-prevTime);
       render();
     }
   }
@@ -35,20 +37,18 @@ void Game::stop() {
 
 }
 
-void Game::deInit() {
-
-}
-
 void Game::tick(double time) {
-  for(int i = 0; i < numEnts; i++) {
-    (*entites)[i].tick(time);
+  for(int i = 0; i < NUM_ENTS; i++) {
+    entities[i].tick(time);
   }
 }
 
 void Game::render() {
-  for(int i = 0; i < numEnts; i++) {
-    (*entites)[i].render(screen);
-  }
+	window->preRender();
+	/*for(int i = 0; i < numEnts; i++) {
+		entities[i].render(window);
+	}*/
+	window->push();
 }
 
 
