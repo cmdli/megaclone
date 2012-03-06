@@ -3,8 +3,14 @@
 #include "mega.h"
 
 Screen::Screen() {
+	Screen("Untitled");
+}
+
+Screen::Screen(char* title) {
 
   screen = SDL_SetVideoMode(640,480,32,SDL_SWSURFACE);
+
+  SDL_WM_SetCaption(title,NULL);
 
   //artInit();
 }

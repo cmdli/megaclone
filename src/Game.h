@@ -14,6 +14,7 @@ class Game {
   void start();
   void stop();
   void deInit();
+  void processEvents();
 
  private:
   void tick(double time);

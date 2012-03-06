@@ -7,7 +7,8 @@
 class Screen {
 
  public:
-  Screen();
+	 Screen();
+  Screen(char* title);
   ~Screen();
   void blitSurface(SDL_Surface* src, int x, int y, SDL_Rect* rect = NULL);
   void preRender();

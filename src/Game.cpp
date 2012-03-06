@@ -4,9 +4,11 @@
 
 #include "mega.h"
 
+SDL_Event eventBuffer;
+
 Game::Game() {
   /*entities = new Entity[NUM_ENTS];*/
-  window = new Screen();
+  window = new Screen("Megaclone");
   running = true;
 }
 
@@ -19,15 +21,16 @@ Game::~Game() {
 
 
 void Game::start() {
-  clock_t prevTime = clock()*CLOCKS_PER_SEC;
-  clock_t curTime = clock()*CLOCKS_PER_SEC;
+  clock_t prevTime = (clock()*1000)/CLOCKS_PER_SEC;
+  clock_t curTime = (clock()*1000)/CLOCKS_PER_SEC;
 
   while(running) {
-    curTime = clock()*CLOCKS_PER_SEC;
-    if(curTime-prevTime > 0.005) {
-		prevTime = clock()*CLOCKS_PER_SEC;
+    curTime = (clock()*1000)/CLOCKS_PER_SEC;
+    if(curTime-prevTime > 100) {
+		processEvents();
       //tick(curTime-prevTime);
       render();
+		prevTime = (clock()*1000)/CLOCKS_PER_SEC;
     }
   }
 
@@ -49,6 +52,16 @@ void Game::render() {
 		entities[i].render(window);
 	}*/
 	window->push();
+}
+
+void Game::processEvents() {
+	while(SDL_PollEvent(&eventBuffer)) {
+		switch(eventBuffer.type) {
+		case SDL_QUIT:
+			running = false;
+			break;
+		}
+	}
 }
 
 
