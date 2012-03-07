@@ -27,10 +27,10 @@ void Game::start() {
   while(running) {
     curTime = (clock()*1000)/CLOCKS_PER_SEC;
     if(curTime-prevTime > 100) {
-		processEvents();
+      processEvents();
       //tick(curTime-prevTime);
       render();
-		prevTime = (clock()*1000)/CLOCKS_PER_SEC;
+      prevTime = (clock()*1000)/CLOCKS_PER_SEC;
     }
   }
 
