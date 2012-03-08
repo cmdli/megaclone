@@ -7,6 +7,8 @@
 
 Map::Map() {
   tiles = NULL;
+  width = 0;
+  height = 0;
 }
 
 Map::~Map() {
@@ -14,32 +16,48 @@ Map::~Map() {
     delete tiles;
 }
 
-void Map::loadFromFIle(char* name) {
+bool Map::loadFromFile(char* name) {
   SDL_Surface* map = SDL_LoadBMP(name);
   if(map == NULL) {
     printError("Map Name not valid");
+	return false;
   }
 
   Uint32* pixels = (Uint32*) map->pixels;
 
-  tiles = new int[map->w][map->h];
+  int w = map->w;
+
+  tiles = new int[map->w*map->h];
 
   for(int x = 0; x < map->w; x++) {
     for(int y = 0; y < map->h; y++) {
-      if((tiles[x][y] = getTileFromColor(pixels[(y*map->w) + x])) == -1) {
+      if((tiles[x + y*w] = getTileFromColor(pixels[(y*map->w) + x])) == -1) {
 	printError("Map File color not correct...");
-	tiles[x][y] = AIR;
+	tiles[x+y*w] = AIR;
       }
     }
   }
     
 }
 
-void render(Screen* window) {
-  
+bool Map::render(Screen* window) {
+	if(tiles == NULL) {
+		printError("Tiles is null! Cannot render Map");
+		return false;
+	}
+
+	for(int x = 0; x <  width; x++) {
+		for(int y = 0; y < height; y++) {
+			if((window->blitSurface(getTileSurface(),x*TILE_WIDTH,y*TILE_WIDTH,getTile(tiles[x+y*width]))) == false) {
+				printError("Failed to render a tile!");
+				return false;
+			}
+		}
+	}
+	return true;
 }
 
-void getTileFromColor(Uint32 color) {
+int getTileFromColor(Uint32 color) {
   switch(color) {
   case 0x000000:
     return AIR;

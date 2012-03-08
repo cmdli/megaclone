@@ -6,18 +6,19 @@
 #define SPRITE_NUM_WIDTH 10
 #define SPRITE_WIDTH 16
 #define SPRITE_HEIGHT 16
+#define TILE_WIDTH 16
+#define TILE_HEIGHT 16
+#define TILE_NUM_WIDTH 10
 
 #include "SDL.h"
 #include <time.h>
 
 void printError(char* message);
-SDL_Rect* getSprite(int id);
-SDL_Surface* getSpriteSurface();
-void artInit();
-void artDeInit();
-SDL_Rect* getSprite(int x, int y, int width, int height);
+int getTileFromColor(Uint32 color);
 
+#include "Art.h"
 #include "Screen.h"
+#include "Map.h"
 #include "Entity.h"
 #include "Player.h"
 #include "Game.h"

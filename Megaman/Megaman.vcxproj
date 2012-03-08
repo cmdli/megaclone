@@ -88,6 +88,7 @@
     <ClCompile Include="..\src\Entity.cpp" />
     <ClCompile Include="..\src\Entry.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
+    <ClCompile Include="..\src\Map.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Screen.cpp" />
     <ClCompile Include="Common.cpp" />
@@ -96,6 +97,7 @@
     <ClInclude Include="..\src\Art.h" />
     <ClInclude Include="..\src\Entity.h" />
     <ClInclude Include="..\src\Game.h" />
+    <ClInclude Include="..\src\Map.h" />
     <ClInclude Include="..\src\mega.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\Screen.h" />

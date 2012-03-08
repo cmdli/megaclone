@@ -8,11 +8,13 @@ class Map {
  public:
   Map();
   ~Map();
-  void loadFromFile(char* name);
-  void render(Screen* window);
+  bool loadFromFile(char* name);
+  bool render(Screen* window);
 
   private:
   int* tiles;
+  int width;
+  int height;
 };
 
 #endif
