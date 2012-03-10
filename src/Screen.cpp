@@ -8,16 +8,16 @@ Screen::Screen() {
 
 Screen::Screen(char* title) {
 
-  screen = SDL_SetVideoMode(640,480,32,SDL_SWSURFACE);
+  screen = SDL_SetVideoMode(256,224,32,SDL_SWSURFACE);
 
   SDL_WM_SetCaption(title,NULL);
 
-  //artInit();
+  artInit();
 }
 
 Screen::~Screen() {
 	SDL_FreeSurface(screen);
-  //artDeInit();
+  artDeInit();
 }
 
 void Screen::preRender() {

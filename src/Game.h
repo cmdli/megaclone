@@ -21,6 +21,7 @@ class Game {
   void render();
   Entity* entities;
   Screen* window;
+  Map* currentMap;
   int numEnts;
   bool running;
 

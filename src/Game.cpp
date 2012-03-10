@@ -24,6 +24,10 @@ void Game::start() {
   clock_t prevTime = (clock()*1000)/CLOCKS_PER_SEC;
   clock_t curTime = (clock()*1000)/CLOCKS_PER_SEC;
 
+  currentMap = new Map();
+
+  running = currentMap->loadFromFile("../map.bmp");
+
   while(running) {
     curTime = (clock()*1000)/CLOCKS_PER_SEC;
     if(curTime-prevTime > 100) {
@@ -51,6 +55,7 @@ void Game::render() {
 	/*for(int i = 0; i < numEnts; i++) {
 		entities[i].render(window);
 	}*/
+	currentMap->render(window);
 	window->push();
 }
 
