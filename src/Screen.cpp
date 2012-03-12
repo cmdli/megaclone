@@ -8,7 +8,7 @@ Screen::Screen() {
 
 Screen::Screen(char* title) {
 
-  screen = SDL_SetVideoMode(256,224,32,SDL_SWSURFACE);
+	screen = SDL_SetVideoMode(SCREEN_HEIGHT,SCREEN_WIDTH,32,SDL_SWSURFACE);
 
   SDL_WM_SetCaption(title,NULL);
 
@@ -29,6 +29,7 @@ bool Screen::blitSurface(SDL_Surface* src, int x, int y, SDL_Rect* rect) {
   offset.x = x;
   offset.y = y;
 
+
   SDL_BlitSurface( src, rect, screen, &offset );
 
   return true;
@@ -37,3 +38,4 @@ bool Screen::blitSurface(SDL_Surface* src, int x, int y, SDL_Rect* rect) {
 void Screen::push() {
 	SDL_Flip(screen);
 }
+

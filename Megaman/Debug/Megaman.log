@@ -1,10 +1,10 @@
-﻿Build started 3/10/2012 4:05:32 PM.
+﻿Build started 3/11/2012 5:16:30 PM.
      1>Project "C:\Users\Christopher\Desktop\src\Megaman\Megaman\Megaman.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Megaman.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\Entry.cpp ..\src\Screen.cpp
-         Screen.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\Art.cpp ..\src\Entry.cpp
+         Art.cpp
          Generating Code...
          Skipping... (no relevant changes detected)
          Entry.cpp
@@ -20,6 +20,8 @@
          Debug\Screen.obj
          Debug\Common.obj
          Debug\Megaman.exe.embed.manifest.res
+         LINK : symbol '_SDL_MapRGB' is undefined; performing full link
+         LINK : symbol '_SDL_SetColorKey' is undefined; performing full link
        Manifest:
          C:\Program Files (x86)\Windows Kits\8.0\bin\x86\mt.exe /nologo /verbose /out:"Debug\Megaman.exe.embed.manifest" /manifest Debug\Megaman.exe.intermediate.manifest
          All outputs are up-to-date.
@@ -33,4 +35,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.48
+Time Elapsed 00:00:01.32

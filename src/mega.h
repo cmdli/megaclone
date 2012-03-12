@@ -4,11 +4,15 @@
 #define MEGA_H
 
 #define SPRITE_NUM_WIDTH 10
-#define SPRITE_WIDTH 16
-#define SPRITE_HEIGHT 16
-#define TILE_WIDTH 16
-#define TILE_HEIGHT 16
+#define SPRITE_WIDTH 32
+#define SPRITE_HEIGHT 32
+#define TILE_WIDTH 32
+#define TILE_HEIGHT 32
 #define TILE_NUM_WIDTH 10
+
+#define SCREEN_HEIGHT 512
+#define SCREEN_WIDTH 448
+#define SCREEN_MUL 2
 
 #include "SDL.h"
 #include <time.h>
