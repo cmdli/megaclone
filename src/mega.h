@@ -16,14 +16,16 @@
 
 #include "SDL.h"
 #include <time.h>
+#include <iostream>
+#include <fstream>
 
 void printError(char* message);
 int getTileFromColor(Uint32 color);
 
 #include "Art.h"
 #include "Screen.h"
-#include "Map.h"
 #include "Entity.h"
+#include "Map.h"
 #include "Player.h"
 #include "Game.h"
 

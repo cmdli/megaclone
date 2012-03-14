@@ -26,6 +26,16 @@ void Entity::render(Screen* window) {
 	window->blitSurface( getSpriteSurface(), x , y , getSprite( getID() ) );
 }
 
+bool Entity::setX(int xn) {
+	x = xn;
+	return true;
+}
+
+bool Entity::setY(int yn) {
+	y = yn;
+	return true;
+}
+
 int Entity::getID() {
 	return ID;
 }

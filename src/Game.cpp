@@ -7,13 +7,11 @@
 SDL_Event eventBuffer;
 
 Game::Game() {
-  /*entities = new Entity[NUM_ENTS];*/
   window = new Screen("Megaclone");
   running = true;
 }
 
 Game::~Game() {
-  /*delete entities;*/
   delete window;
 
 }
@@ -32,7 +30,7 @@ void Game::start() {
     curTime = (clock()*1000)/CLOCKS_PER_SEC;
     if(curTime-prevTime > 100) {
       processEvents();
-      //tick(curTime-prevTime);
+      tick(curTime-prevTime);
       render();
       prevTime = (clock()*1000)/CLOCKS_PER_SEC;
     }
@@ -45,9 +43,7 @@ void Game::stop() {
 }
 
 void Game::tick(double time) {
-  for(int i = 0; i < NUM_ENTS; i++) {
-    entities[i].tick(time);
-  }
+  currentMap->tick(time);
 }
 
 void Game::render() {

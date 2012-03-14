@@ -12,7 +12,6 @@ class Player: public Entity {
   void render(Screen* window);
   int getID();
 
-
  private:
 };
 

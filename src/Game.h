@@ -19,7 +19,6 @@ class Game {
  private:
   void tick(double time);
   void render();
-  Entity* entities;
   Screen* window;
   Map* currentMap;
   int numEnts;

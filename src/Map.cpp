@@ -4,6 +4,7 @@
 
 #define AIR 0
 #define BRICK 1
+#define COMMENT_CHAR '#'
 
 Map::Map() {
   tiles = NULL;
@@ -45,6 +46,61 @@ bool Map::loadFromFile(char* name) {
     return true;
 }
 
+using namespace std;
+
+bool Map::loadEnemies(char* name) {
+
+	ifstream input;
+	
+	input.open(name,ios::in);
+
+	char* txt = new char[10];
+	int numLines = 0;
+
+	while(!input.eof()) {
+		input.getline(txt,10);
+		if(*txt != COMMENT_CHAR)
+			numLines++;
+	}
+	input.seekg(ios::beg);
+
+	units = new Entity*[numLines];
+
+	for(int i = 0; i < numLines; i++) {
+		input.getline(txt,10);
+		if(*txt != COMMENT_CHAR)
+			createEntity(txt,units[i]);
+	}
+
+	input.close();
+
+	numEntities = numLines;
+
+	return true;
+}
+
+bool createEntity(char* txt, Entity* unit) {
+
+	char tmp[4];
+	int i = 0;
+
+	while(txt && *txt != ' ' && i < 4) {
+		tmp[i] = *txt;
+		i++;
+	}
+	i = 0;
+	unit->setX(atoi(tmp));
+
+	while(txt && *txt != ' ' && i < 4) {
+		tmp[i] = *txt;
+		i++;
+	}
+	i = 0;
+	unit->setY(atoi(tmp));
+
+	return true;
+}
+
 bool Map::render(Screen* window) {
 	if(tiles == NULL) {
 		printError("Tiles is null! Cannot render Map");
@@ -60,6 +116,12 @@ bool Map::render(Screen* window) {
 		}
 	}
 	return true;
+}
+
+bool Map::tick(double time) {
+	for(int i = 0; i < numEntities; i++) {
+		units[i]->tick(time);
+	}
 }
 
 int getTileFromColor(Uint32 color) {
