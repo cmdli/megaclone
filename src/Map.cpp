@@ -54,6 +54,9 @@ bool Map::loadEnemies(char* name) {
 	
 	input.open(name,ios::in);
 
+	if(input == NULL)
+		return false;
+
 	char* txt = new char[10];
 	int numLines = 0;
 
@@ -64,9 +67,14 @@ bool Map::loadEnemies(char* name) {
 	}
 	input.seekg(ios::beg);
 
-	units = new Entity*[numLines];
+	units = new Entity*[numLines-1];
 
-	for(int i = 0; i < numLines; i++) {
+	player = new Player();
+	input.getline(txt,10);
+	if(*txt != COMMENT_CHAR)
+		createEntity(txt,player);
+
+	for(int i = 0; i < numLines-1; i++) {
 		input.getline(txt,10);
 		if(*txt != COMMENT_CHAR)
 			createEntity(txt,units[i]);
@@ -74,7 +82,7 @@ bool Map::loadEnemies(char* name) {
 
 	input.close();
 
-	numEntities = numLines;
+	numEntities = numLines-1;
 
 	return true;
 }
@@ -84,15 +92,25 @@ bool createEntity(char* txt, Entity* unit) {
 	char tmp[4];
 	int i = 0;
 
+	for(i = 0;i < 4; i++) {
+		tmp[i] = ' ';
+	}
+	i = 0;
+
 	while(txt && *txt != ' ' && i < 4) {
 		tmp[i] = *txt;
+		txt++;
 		i++;
 	}
 	i = 0;
 	unit->setX(atoi(tmp));
 
+	while(txt && *txt == ' ')
+		txt++;
+
 	while(txt && *txt != ' ' && i < 4) {
 		tmp[i] = *txt;
+		txt++;
 		i++;
 	}
 	i = 0;
@@ -115,6 +133,12 @@ bool Map::render(Screen* window) {
 			}
 		}
 	}
+
+	player->render(window);
+
+	for(int i = 0; i < numEntities; i++) {
+		units[i]->render(window);
+	}
 	return true;
 }
 
@@ -122,6 +146,7 @@ bool Map::tick(double time) {
 	for(int i = 0; i < numEntities; i++) {
 		units[i]->tick(time);
 	}
+	return true;
 }
 
 int getTileFromColor(Uint32 color) {

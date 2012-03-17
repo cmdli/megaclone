@@ -2,7 +2,7 @@
 
 #include "mega.h"
 
-#define ID 1
+#define ID 0
 
 Player::Player(): Entity() {
 
@@ -17,7 +17,7 @@ void Player::tick(double time) {
 }
 
 void Player::render(Screen* window) {
-	Entity::render(window);
+	Entity::render(window,ID);
 }
 
 int Player::getID() {

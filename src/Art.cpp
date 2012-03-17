@@ -6,11 +6,14 @@ SDL_Surface* sprites;
 SDL_Surface* tiles;
 
 SDL_Surface* player;
+SDL_Surface* empty;
 
 //Loads Art Files
 void artInit() {
 	sprites = loadSurface("../sprites.bmp");
 	tiles = loadSurface("../tiles.bmp");
+	empty = loadSurface("../empty.bmp");
+	player = loadSurface("../player.bmp");
 }
 
 //Removes art files
@@ -20,10 +23,16 @@ void artDeInit() {
 }
 
 //Gets the sprite based on ID
-SDL_Rect* getSprite(int id) {
-	if(sprites == NULL) 
-		return NULL;
-	return getRect( (id%SPRITE_NUM_WIDTH)*SPRITE_WIDTH , (id-id%SPRITE_NUM_WIDTH)*SPRITE_HEIGHT, SPRITE_WIDTH, SPRITE_HEIGHT);
+SDL_Surface* getSprite(int id) {
+	switch(id) {
+	case -1:
+		return empty;
+		break;
+	case 0:
+		return player;
+		break;
+	}
+	return empty;
 }
 
 //Creates a SDL_Rect object based on the config values

@@ -18,12 +18,12 @@ Entity::~Entity() {
 void Entity::tick(double time) {
 }
 
-void Entity::render(Screen* window) {
+void Entity::render(Screen* window, int id) {
 	if(window == NULL) {
 		printError("The Window is not initialized!");
 		return;
 	}
-	window->blitSurface( getSpriteSurface(), x , y , getSprite( getID() ) );
+	window->blitSurface( getSprite(id), x , y );
 }
 
 bool Entity::setX(int xn) {

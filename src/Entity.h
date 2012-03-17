@@ -8,7 +8,7 @@ class Entity {
 		Entity();
 		~Entity();
 		virtual void tick(double time);
-		virtual void render(Screen* window);
+		virtual void render(Screen* window, int id = -1);
 		virtual int getID();
 		bool setX(int xn);
 		bool setY(int yn);

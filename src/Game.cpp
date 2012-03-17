@@ -25,6 +25,7 @@ void Game::start() {
   currentMap = new Map();
 
   running = currentMap->loadFromFile("../map.bmp");
+  running = currentMap->loadEnemies("../config");
 
   while(running) {
     curTime = (clock()*1000)/CLOCKS_PER_SEC;

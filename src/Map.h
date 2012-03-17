@@ -3,6 +3,9 @@
 #ifndef MAP_H
 #define MAP_H
 
+class Player;
+class Entity;
+
 class Map {
 
  public:
@@ -22,6 +25,6 @@ class Map {
   int height;
 };
 
-Entity* createEntity(char* txt);
+bool createEntity(char* txt, Entity* unit);
 
 #endif
