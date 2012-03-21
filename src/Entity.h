@@ -13,12 +13,17 @@ class Entity {
 		bool setX(int xn);
 		bool setY(int yn);
 
-	protected:
 		int x;
 		int y;
+		int w;
+		int h;
 		double xSp;
 		double ySp;
-
+		Square* col;
+		bool noRight;
+		bool noLeft;
+		bool noDown;
+		bool noUp;
 };
 
 

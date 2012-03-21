@@ -5,6 +5,10 @@
 #define AIR 0
 #define BRICK 1
 #define COMMENT_CHAR '#'
+#define COLOR_SHEET "../color"
+#define COLOR_SIZE 16777216
+
+unsigned _int8* colors;
 
 Map::Map() {
   tiles = NULL;
@@ -142,19 +146,71 @@ bool Map::render(Screen* window) {
 	return true;
 }
 
+//Passes the time to units tick
 bool Map::tick(double time) {
-	for(int i = 0; i < numEntities; i++) {
-		units[i]->tick(time);
-	}
-	return true;
+  player->tick(time);
+  for(int i = 0; i < numEntities; i++) {
+    units[i]->tick(time);
+  }
+  return true;
 }
 
-int getTileFromColor(Uint32 color) {
-  switch(color) {
-  case 0xFFFFFF:
-    return AIR;
-  case 0x000000:
-    return BRICK;
+//Loads the Color Map
+bool loadColorSheet(char* name) {
+
+  colors = new unsigned _int8[COLOR_SIZE];
+
+  ifstream input;
+
+  input.open(name,ios::in);
+
+  char* txt = new char[10];
+  int index = 0;
+  unsigned _int8 value = 0;
+
+  while(!input.eof()) {
+    input.getline(txt,10);
+    if(txt && *txt != COMMENT_CHAR) {
+      char tmp[10];
+      int i = 0;
+
+      for(i = 0;i < 10; i++) {
+	tmp[i] = ' ';
+      }
+      i = 0;
+
+      while(txt && *txt != ' ' && i < 10) {
+	tmp[i] = *txt;
+	txt++;
+	i++;
+      }
+      i = 0;
+      index = atoi(tmp);
+
+      while(txt && *txt == ' ')
+	txt++;
+
+      while(txt && *txt != ' ' && i < 10) {
+	tmp[i] = *txt;
+	txt++;
+	i++;
+      }
+      i = 0;
+      value = atoi(tmp);
+
+      colors[index] = value;
+    }
   }
-  return -1;
+
+  return true;
+}
+
+//Accesses Color Map
+int getTileFromColor(Uint32 color) {
+
+  if(colors == NULL) {
+    loadColorSheet(COLOR_SHEET);
+  }
+
+  return colors[color];
 }

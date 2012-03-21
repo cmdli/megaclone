@@ -22,6 +22,16 @@
 void printError(char* message);
 int getTileFromColor(Uint32 color);
 
+enum dir {
+  left,
+  right,
+  up,
+  down
+};
+
+#include "Square.h"
+#include "Point.h"
+#include "Physics.h"
 #include "Art.h"
 #include "Screen.h"
 #include "Entity.h"
